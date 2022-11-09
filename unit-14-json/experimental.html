@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Experimental JS</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		const url = 'https://mdn.github.io/learning-area/javascript/oojs/tasks/json/sample.json';
+
+		fetch(url)
+		.then(response => response.text())
+		.then(text => displayInfo(text))
+
+		function displayInfo(catInfo) {
+			let cats = catInfo;
+			console.log(catInfo);
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+Using the fetch() API:
+
+The fetfh API is the modern replacement of the "XML-Http-Request" API and we use like the following:
+
+*****************
+**********************
+
+const fetchPromise = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json');
+
+console.log(fetchPromise); // in this line we are logging the Promise object that is a built-in object of the "fetch()" API
+
+fetchPromise.then((response) => { // the then() method tells the script when the operation succeeds, the promise will call our handler, 									  // passing in a Response object, which contains the server's response.
+  console.log(`Received response: ${response.status}`);
+});
+
+console.log("Started request…");
+
+**********************
+*****************
+

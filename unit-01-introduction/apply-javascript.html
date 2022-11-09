@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <!-- begining head -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Apply JavaScript example</title>
+
+    <!--  this is how you can run js on a html template... -->
+
+    <!-- <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', () => {
+        function createParagraph() {
+          const para = document.createElement('p');
+          para.textContent = 'You clicked the button!';
+          document.body.appendChild(para);
+        }
+
+        const buttons = document.querySelectorAll('button');
+
+        for (const button of buttons) {
+          button.addEventListener('click', createParagraph);
+        }
+      });
+    </script> -->
+
+    <!-- you can run js on a external script by linking the script.js like this... -->
+    <!-- note: it's important to have the 'defer' attr to load the script while the html it's been rendered,
+      can also use 'async' but it's functionality is diferent-->
+
+    <script src="script.js" type="text/javascript" defer></script>
+
+    <!-- closing head -->
+  </head>
+  <body>
+    <button>Click me</button>
+    <p>Hello this is the 2nd button: <button>Im the second button! ;)</button></p>
+  </body>
+</html>

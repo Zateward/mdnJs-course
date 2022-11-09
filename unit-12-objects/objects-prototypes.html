@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Objects Prorotype</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		/* The prototype chain */
+
+		const myDateMain = new Date();
+		let object = myDateMain;
+
+		do {
+			object = Object.getPrototypeOf(object);
+			console.log(object);
+		} while (object);
+
+		
+		/* Shadowing properties */
+		
+		const myDate = new Date(1995, 11, 17);
+
+		myDate.getYear = function () {
+			console.log("something else!");
+		};
+
+		// myDate.getYear(); // it will print: 'something else!'
+
+
+		/* Setting a prototype */
+
+		const personPrototypeMain = {
+			greet() {
+				console.log('hello');
+			},
+		};
+
+		const carl = Object.create(personPrototypeMain);
+
+		const personPrototype = {
+			greet() {
+				console.log(`hello, my name is ${this.name}!`);
+			},
+		};
+
+		function Person(name) {
+			this.name = name;
+		}
+
+		Object.assign(Person.prototype, personPrototype); // also you can assign the prototype by: Person.prototype.greet = personPrototype.greet;
+
+		const Luis = new Person('Luis');
+		const Valeria = new Person('Valeria');
+	</script>
+</body>
+</html>

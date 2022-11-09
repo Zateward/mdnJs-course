@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+
+  </body>
+
+    <script>
+      /* This are the basics of an object model */
+      const person = {
+        name: {
+          first: 'Bob',
+          last: 'Smith',
+        },
+        age: 32,
+        bio: function () {
+          console.log(`${this.name[0]} ${this.name[1]} is ${this.age} years old.`);
+        },
+        introduceSelf: function () {
+          console.log(`Hi! I'm ${this.name[0]}.`);
+        },
+      };
+
+      const myDataName = "height";
+      const myDataValue = "1.75m";
+      person[myDataName] = myDataValue;
+
+
+      /* Here you can access values with string besides dots */
+      function propertyValue(prop1) {
+        console.log(person[prop1]);
+      }
+
+      /* You can update values in an object by doing this */
+      person.age = 45;
+      person['name']['last'] = 'Melendez';
+
+      /* You can also add key/values into an object */
+      person.eyes = 'blue';
+
+      /* Using 'this' keyword */
+      const person1 = {
+        name: 'Luis',
+        introduceSelf() {
+          console.log(`Hello, my name is ${this.name}`);
+        },
+      };
+
+      const person2 = {
+        name: 'Eduardo',
+        introduceSelf() {
+          console.log(`Hello, my name is ${this.name}`);
+        },
+      };
+
+      /* Introducing constructors */
+      // function createPerson(name, age) {
+      //   const obj = {};
+      //   obj.name = name;
+      //   obj.age = age;
+
+      //   obj.introduceSelf = function() {
+      //     console.log(`Hi my name is ${this.name}, and I have ${this.age}!`);
+      //   };
+      //   return obj.introduceSelf();
+      // }
+
+      function createPerson(name, age) {
+        this.name = name;
+        this.age = age;
+
+        this.introduceSelf = function() {
+          console.log(`Hi my name is ${this.name}, and I have ${this.age} years old!`)
+        }
+      }
+
+      const Luis = new createPerson('Luis', '19');
+
+      const notification = new Notification('Hello!');
+    </script>
+</html>
